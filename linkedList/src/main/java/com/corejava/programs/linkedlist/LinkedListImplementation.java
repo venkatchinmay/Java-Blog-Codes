@@ -5,12 +5,12 @@ public class LinkedListImplementation {
 	public static  LinkedList<Integer> get() throws Exception {
 		LinkedList<Integer> linkedList = new LinkedList<>();
 	      linkedList.add(1);
-	      linkedList.add(2);
+	      /*linkedList.add(2);
 	      linkedList.add(3);
 	      linkedList.add(4);
 	      linkedList.add(5);
 	      linkedList.addAtPosition(13, 2);
-	      linkedList.addLast(10);
+	      linkedList.addLast(10);*/
 		return linkedList;
 	}
 
@@ -23,7 +23,7 @@ public class LinkedListImplementation {
       linkedList.add(10);
       linkedList.addAtPosition(12, 2);
       linkedList.addLast(11);*/
-      linkedList.addFirst(100);
+      //linkedList.addFirst(100);
       String st = linkedList.traversingList();
       System.out.println(linkedList.size());
       System.out.println(st);

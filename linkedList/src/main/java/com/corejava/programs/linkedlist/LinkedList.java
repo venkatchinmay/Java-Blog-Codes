@@ -60,7 +60,7 @@ public class LinkedList<T> implements List<T> {
 	 * 
 	 */
 	private void insertingNode(int position,Node<T> node) throws Exception {
-		if(position > size+1 && position < 0) {
+		if(position > size+1 || position <= 0) {
 			throw new Exception("Invalid Size");
 		}
 		int firstPosition = 1;
@@ -125,10 +125,6 @@ public class LinkedList<T> implements List<T> {
 			return 0;
 		}
 		for(Node<T> tmp = head; tmp != null; tmp = tmp.next) {
-			System.out.println(linkedListsize);
-			System.out.println("----------------------");
-			System.out.println(tmp.value);
-			System.out.println("========================");
 			linkedListsize = linkedListsize+1;
 		}
 		return linkedListsize;
