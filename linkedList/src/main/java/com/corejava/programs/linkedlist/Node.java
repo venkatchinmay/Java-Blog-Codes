@@ -1,8 +1,8 @@
 package com.corejava.programs.linkedlist;
 
 public class Node<T> {
-	T value ; 
-	Node<T> next ;
+	public T value ; 
+	public Node<T> next ;
 	
 	public Node(T value, Node<T> next){
 		this.value = value;

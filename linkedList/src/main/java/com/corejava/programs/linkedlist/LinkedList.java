@@ -1,6 +1,8 @@
 package com.corejava.programs.linkedlist;
 
-public class LinkedList<T> {
+import com.corejava.List.List;
+
+public class LinkedList<T> implements List<T> {
 
 	Node<T> head = null;
 	Node<T> tail = null;
@@ -118,12 +120,16 @@ public class LinkedList<T> {
 	 * Size of the Linked List 
 	 */
 	public int size() {
-		int linkedListsize = 0;
+		int linkedListsize = 1;
 		if(head == null) {
 			return 0;
 		}
 		for(Node<T> tmp = head; tmp != null; tmp = tmp.next) {
-			linkedListsize++;
+			System.out.println(linkedListsize);
+			System.out.println("----------------------");
+			System.out.println(tmp.value);
+			System.out.println("========================");
+			linkedListsize = linkedListsize+1;
 		}
 		return linkedListsize;
 	}

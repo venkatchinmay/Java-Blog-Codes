@@ -25,6 +25,7 @@ public class LinkedListImplementation {
       linkedList.addLast(11);*/
       linkedList.addFirst(100);
       String st = linkedList.traversingList();
+      System.out.println(linkedList.size());
       System.out.println(st);
 	}
 
