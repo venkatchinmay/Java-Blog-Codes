@@ -12,7 +12,13 @@ public interface List<T> {
 	
 	public String traversingList() throws Exception;
 	
+	public String positionOfElement(T value);
+	
+	public void removeByValue(T value) throws Exception;
+	
 	public int size() ;
+	
+	public void removeAll();
 	
 	
 	

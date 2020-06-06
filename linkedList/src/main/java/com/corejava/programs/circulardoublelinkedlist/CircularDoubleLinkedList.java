@@ -143,4 +143,22 @@ public class CircularDoubleLinkedList<T> implements List<T> {
 		output = output.substring(0, output.length()-1).concat("}");
 		return output;
 	}
+
+	@Override
+	public String positionOfElement(T value) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void removeByValue(T value) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeAll() {
+		// TODO Auto-generated method stub
+		
+	}
 }
