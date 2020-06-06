@@ -1,10 +1,12 @@
 package com.corejava.programs.circularlinkedlist;
 
+import java.util.Scanner;
+
 import com.corejava.List.List;
 
 
 public class CircularLinkedList<T> implements List<T>{
-	
+
 	Node<T> head;
 	Node<T> tail;
 	int size;
@@ -17,7 +19,7 @@ public class CircularLinkedList<T> implements List<T>{
 	@Override
 	public void addFirst(T value) throws Exception {
 		addAtPosition(value,1);
-		
+
 	}
 
 	@Override
@@ -38,10 +40,10 @@ public class CircularLinkedList<T> implements List<T>{
 			size++;
 		}else if(position == size+1) {
 			Node<T> temp = tail;
-		    newNode.next = head;
-		    temp.next = newNode;
-		    tail = newNode;
-		    size++;
+			newNode.next = head;
+			temp.next = newNode;
+			tail = newNode;
+			size++;
 		}else if (position == 1) {
 			newNode.next = head;
 			head = newNode;
@@ -60,7 +62,7 @@ public class CircularLinkedList<T> implements List<T>{
 				count = count+1;
 			}
 		}
-		
+
 	}
 
 	@Override
@@ -89,26 +91,99 @@ public class CircularLinkedList<T> implements List<T>{
 			current = current.next;
 			size++;
 		}while(current != head);
-		
+
 		return size;
 	}
 
 	@Override
 	public String positionOfElement(T value) {
-		// TODO Auto-generated method stub
-		return null;
+		String position = "";
+		int count = 1;
+		Node<T> current = head;
+		do {
+			if(current.data == value) {
+				position = position.concat(String.valueOf(count)).concat(",");
+				position = position.trim();
+			}
+			current = current.next;
+			count = count+1;
+		}while(current != head);
+
+		if(!position.isEmpty()) {
+			position = position.substring(0,position.length()-1);
+		}
+		return position;
 	}
 
 	@Override
 	public void removeByValue(T value) throws Exception {
-		// TODO Auto-generated method stub
-		
+		String position = positionOfElement(value);
+		System.out.println("Position ::: "+position);
+		if(!position.isEmpty()) {
+			String [] positions = position.split(",");
+			if(positions.length > 1) {
+				Scanner input = new Scanner(System.in);	
+				System.out.println("Given element is present in "+position+" positions");
+				System.out.println("ENTER the Select position from above one , if you need to delete in all positions ENTER all");
+				String inputValue = input.nextLine();
+				if(!inputValue.isEmpty() && position.contains(inputValue)) {
+					removeElementByPosition(Integer.parseInt(inputValue));
+				}else if(inputValue.equalsIgnoreCase("all")) {
+					removeElementByPosition(Integer.parseInt(positions[0]));
+					for (int i= 1; i< positions.length;i++) {
+						removeElementByPosition(Integer.parseInt(positions[i])-i);
+					}
+				}else {
+					throw new Exception("Invalid input");
+				}
+			}else {
+				removeElementByPosition(Integer.parseInt(positions[0]));
+			}
+		}else {
+			throw new Exception("Value is Not there in the list");
+		}
+
 	}
 
 	@Override
 	public void removeAll() {
-		// TODO Auto-generated method stub
-		
+		head = null;
+		tail = null;
+	}
+
+	private void removeElementByPosition(int position) throws Exception {
+		if(position > size) {
+			throw new Exception("Invalid position");
+		}
+
+		if(head == null) {
+			throw new Exception("List is Empty");
+		} else if(position == 1) {
+			Node<T> temp = head.next;
+			head = temp;
+			tail.next = head;
+			size--;
+		}else if(position == size) {
+			Node<T> current = head;
+			do {
+				if(current.next.next == head) {
+					current.next = head;
+					tail = current;
+					size --;
+				}
+				current = current.next;
+			}while(current != head);
+		}else {
+			int count = 1;
+			for(Node<T> current = head; count < position ; current = current.next) {
+				if(count == position-1) {
+					Node<T> temp = current.next.next;
+					current.next = temp;
+					size--;
+				}
+				count = count+1;
+			}
+		}
 	}
 
 }

@@ -146,7 +146,6 @@ public class CircularDoubleLinkedList<T> implements List<T> {
 
 	@Override
 	public String positionOfElement(T value) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

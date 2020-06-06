@@ -159,7 +159,8 @@ public class LinkedList<T> implements List<T> {
 			int count = 1;
 			for(Node<T> current = head; count < position ; current = current.next) {
 				if(count == position-1) {
-					current.next = current.next.next;
+					Node<T> temp = current.next.next;
+					current.next = temp;
 					size--;
 				}
 				count = count+1;

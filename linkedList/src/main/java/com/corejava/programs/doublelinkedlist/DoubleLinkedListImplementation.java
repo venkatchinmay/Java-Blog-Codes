@@ -9,6 +9,15 @@ public class DoubleLinkedListImplementation {
 	      DoubleLinkedList.add(3);
 	      DoubleLinkedList.add(4);
 	      DoubleLinkedList.add(5);
+	      DoubleLinkedList.add(3);
+	      DoubleLinkedList.add(4);
+	      DoubleLinkedList.add(3);
+	      DoubleLinkedList.add(3);
+	      DoubleLinkedList.add(5);
+	      DoubleLinkedList.add(5);
+	      DoubleLinkedList.add(5);
+	      DoubleLinkedList.add(5);
+	      DoubleLinkedList.add(3);
 	      DoubleLinkedList.addAtPosition(13, 2);
 	      DoubleLinkedList.addLast(10);
 		return DoubleLinkedList;
@@ -16,13 +25,6 @@ public class DoubleLinkedListImplementation {
 
 	public static void main(String[] args) throws Exception {
       DoubleLinkedList<Integer> DoubleLinkedList = get();
-     /* DoubleLinkedList.add(6);
-      DoubleLinkedList.add(7);
-      DoubleLinkedList.add(8);
-      DoubleLinkedList.add(9);
-      DoubleLinkedList.add(10);
-      DoubleLinkedList.addAtPosition(12, 2);
-      DoubleLinkedList.addLast(11);*/
       DoubleLinkedList.addFirst(100);
       String st = DoubleLinkedList.traversingList();
       String reverse = DoubleLinkedList.traversingListReverse();
@@ -35,6 +37,23 @@ public class DoubleLinkedListImplementation {
       System.out.println(DoubleLinkedList.size());
       System.out.println(st1);
       System.out.println(reverse1);
+      System.out.println("-----------------------");
+      DoubleLinkedList.removeByValue(1);
+      DoubleLinkedList.removeByValue(2);
+      DoubleLinkedList.removeByValue(10);
+      String st2 = DoubleLinkedList.traversingList();
+      System.out.println(st2);
+      DoubleLinkedList.removeByValue(3);
+      String st3 = DoubleLinkedList.traversingList();
+      System.out.println(st3);
+      String reverse2 = DoubleLinkedList.traversingListReverse();
+      System.out.println(reverse2);
+      DoubleLinkedList.removeByReversePosition(1);
+      DoubleLinkedList.removeByReversePosition(3);
+      String st4 = DoubleLinkedList.traversingList();
+      System.out.println(st4);
+      String reverse3 = DoubleLinkedList.traversingListReverse();
+      System.out.println(reverse3);
 	}
 
 }
