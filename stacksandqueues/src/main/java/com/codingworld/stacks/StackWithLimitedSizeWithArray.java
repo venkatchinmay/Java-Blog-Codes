@@ -19,7 +19,10 @@ public class StackWithLimitedSizeWithArray<T> implements Stack<T> {
 		}
 	}
 
-	public T peek()  {
+	public T peek() throws Exception  {
+		if(stackSize <= 0) {
+			throw new Exception("Stack is Empty");
+		}
 		int index = stackSize-1;
 		return stack[index];	
 	}

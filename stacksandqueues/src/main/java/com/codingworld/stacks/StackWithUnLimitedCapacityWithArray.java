@@ -19,12 +19,18 @@ public class StackWithUnLimitedCapacityWithArray<T> implements Stack<T> {
 	}
 
 	public T pop() throws Exception {
+		if(stackSize <= 0) {
+			throw new Exception("Stack is Empty");
+		}
 		isCapacityDecreased();
 		stackSize = stackSize-1;
 		return stack[stackSize];
 	}
 
-	public T peek() {
+	public T peek() throws Exception {
+		if(stackSize <= 0) {
+			throw new Exception("Stack is Empty");
+		}
 		int position = stackSize-1;
 		return stack[position];
 	}

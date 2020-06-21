@@ -24,6 +24,17 @@ public class StackTest {
        System.out.println(stackUnlimited.pop());
        System.out.println(stackUnlimited.pop());
        System.out.println(stackUnlimited.printStackElements());
+       System.out.println("---------------------------------------------------");
+       StackWithLinkedList<Integer> stacklinkedList = new StackWithLinkedList<Integer>();
+       stacklinkedList.push(10);
+       stacklinkedList.push(20);
+       stacklinkedList.push(30);
+       stacklinkedList.push(40);
+       System.out.println(stacklinkedList.printStackElements());
+       System.out.println(stacklinkedList.peek());
+       System.out.println(stacklinkedList.pop());
+       System.out.println(stacklinkedList.pop());
+       System.out.println(stacklinkedList.printStackElements());
 	}
 
 }
