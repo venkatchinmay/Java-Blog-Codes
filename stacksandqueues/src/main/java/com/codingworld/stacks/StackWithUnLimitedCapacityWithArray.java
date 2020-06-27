@@ -66,7 +66,7 @@ public class StackWithUnLimitedCapacityWithArray<T> implements Stack<T> {
 			capacity = 2 * capacity;
 			//Copying the elements to temp with increased capacity
 			T [] temp = (T[]) new Object[capacity];
-			for(int i=0; i< stack.length;i++) {
+			for(int i=0; i< stackSize;i++) {
 				temp[i] = stack[i];
 			}
 			stack = temp;
@@ -83,7 +83,7 @@ public class StackWithUnLimitedCapacityWithArray<T> implements Stack<T> {
 			capacity = capacity/2 ;
 			//Copying the elements to temp with decreased capacity
 			T [] temp = (T[]) new Object[capacity];
-			for(int i=0; i< stack.length;i++) {
+			for(int i=0; i< stackSize;i++) {
 				temp[i] = stack[i];
 			}
 			stack = temp;
@@ -91,7 +91,10 @@ public class StackWithUnLimitedCapacityWithArray<T> implements Stack<T> {
 		return isCapacityReduced;
 	}
 	
-	private class StackwithUnLimitedCapacityWithArrayIterator implements Iterator<T> {
+	public StackwithUnLimitedCapacityWithArrayIterator getIterator() {
+		return new StackwithUnLimitedCapacityWithArrayIterator();
+	}
+	public class StackwithUnLimitedCapacityWithArrayIterator implements Iterator<T> {
          int size = stackSize;
 		
          public boolean hasNext() {
