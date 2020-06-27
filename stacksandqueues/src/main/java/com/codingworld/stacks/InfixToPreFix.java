@@ -1,5 +1,8 @@
 package com.codingworld.stacks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * pseudo code ::
  * a. reverse the infix expression 
@@ -87,9 +90,9 @@ public class InfixToPreFix {
 	}
 	
 	private String conversionOfInfixToPostExpression(String infix) throws Exception {
-		char ch [] = infix.toCharArray();
-	       for(char t : ch) {
-	    	   infixToPostFix(String.valueOf(t));
+		String ch [] = convertExpressionIntoArray(infix);
+	       for(String t : ch) {
+	    	   infixToPostFix(t);
 	       }
 	       if(stack.size()> 0) {
 	    	   while(stack.size()> 0) {
@@ -133,6 +136,39 @@ public class InfixToPreFix {
 		String postfixExpression = conversionOfInfixToPostExpression(replaceWithBraces);
 	    return reverseString(postfixExpression);
 	}
+	
+	private  boolean isOperator(String symbol) {
+		String operators = "+-/*{}[]()^";
+		return (operators.contains(symbol));
+	}
+	
+	private  String[] convertExpressionIntoArray(String expression) {
+		List<String> elements = new ArrayList<String>();
+		char[] splittingArray = expression.toCharArray();
+		String operand = null;
+		for(char c : splittingArray) {
+			if(isOperator(String.valueOf(c))){
+				if(operand != null) {
+				  elements.add(operand);
+				}
+				elements.add(String.valueOf(c));
+				operand = null;
+			}else {
+				if(operand != null) {
+					operand = operand.concat(String.valueOf(c));
+				}else {
+					operand = String.valueOf(c);
+				}
+			}
+		}
+		if(operand != null) {
+			 elements.add(operand);
+		}
+		 String[] arr = new String [elements.size()]; 
+	        arr = elements.toArray(arr); 
+		return arr;
+	}
+
 	
 	public static void main(String args[]) throws Exception {
 		String infix = "(a+b*c)";
