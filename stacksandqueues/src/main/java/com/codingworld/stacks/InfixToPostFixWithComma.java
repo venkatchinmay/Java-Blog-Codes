@@ -81,7 +81,6 @@ public class InfixToPostFixWithComma {
 			}else {
 				postFix = symbol;
 				postFix = postFix.concat(",");
-				System.out.println(postFix);
 			}
 		}else {
 			if(stack.size() == 0) {

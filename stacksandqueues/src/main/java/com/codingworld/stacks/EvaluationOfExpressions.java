@@ -26,7 +26,6 @@ public class EvaluationOfExpressions {
 
 	private void calculatePreFixEvaluation(String symbol) throws Exception {
 		if(isOperator(symbol) && prefixEvaluation.size() > 0) {
-			System.out.println(prefixEvaluation.printStackElements());
 			String topElement = prefixEvaluation.pop();
 			String nextTopElement = prefixEvaluation.pop();
 			if(isNumeric(topElement) && isNumeric(nextTopElement)) {
@@ -38,7 +37,6 @@ public class EvaluationOfExpressions {
 			}
 		}else {
 			prefixEvaluation.push(symbol);
-			System.out.println(prefixEvaluation.printStackElements());
 		}
 	}
 
@@ -118,7 +116,7 @@ public class EvaluationOfExpressions {
 			System.out.println("Enter the Expression to evaluate ::: ");
 			String myString= input.nextLine();
 			myString = myString.replaceAll("\\s", ""); 
-			System.out.println(myString);
+			System.out.println("Expression need to calculate ::"+ myString);
 			String s = expression.calculateResultOfExpressionWithPostfix(myString);
 			System.out.println("calculated result with postfix :::  "+s);
 			String st = expression.calculateResultOfExpressionWithPrefix(myString);

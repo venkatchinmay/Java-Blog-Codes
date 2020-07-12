@@ -159,7 +159,6 @@ public class InfixToPreFix {
 		StringBuilder input = new StringBuilder();
 		String arr[] = postfix.split(",");
 		for(int i = arr.length-1; i >= 0; i--) {
-			System.out.println(arr[i]);
 			input.append(arr[i]);
 			input.append(",");
 		}
@@ -169,21 +168,15 @@ public class InfixToPreFix {
 	public String conversionOfInfixToPrefixExpression(String infix) throws Exception {
 		String reverseInfix = reverseInfixExpression(infix);
 		String replaceWithBraces = replacedWithBracesString(reverseInfix);
-		System.out.println(replaceWithBraces);
 		String postfixExpression = conversionOfInfixToPostExpression(replaceWithBraces);
-		System.out.println(postfixExpression);
 		return reversepostFixExpression(postfixExpression);
 	}
 	
 	public String preFixInsertedWithCommasToEvaluateExpression(String infix) throws Exception {
 		String reverseInfix = reverseInfixExpression(infix);
-		System.out.println(reverseInfix);
 		String replaceWithBraces = replacedWithBracesString(reverseInfix);
-		System.out.println("CHECK with braces  :::: "+replaceWithBraces);
 		InfixToPostFixWithComma infixToPostFix = new InfixToPostFixWithComma();
 		String postfixExpression = infixToPostFix.conversionOfInfixToPostExpression(replaceWithBraces);
-		//String postfixExpression = conversionOfInfixToPostExpression(replaceWithBraces);
-		System.out.println("CHECK :::: "+postfixExpression);
 		return reversepostFixExpression(postfixExpression);
 	}
 	
