@@ -124,17 +124,67 @@ public class InfixToPreFix {
 		return replace.toString();
 	}
 	
-	private String reverseString(String st) {
+	private String insertCommas(char[] characters) {
+		String insertedCommas = null;
+		for(char character : characters) {
+			if(insertedCommas == null) {
+				insertedCommas = String.valueOf(character);
+				continue;
+			}else if(isOperator(String.valueOf(character))) {
+				if(insertedCommas.lastIndexOf(",") != (insertedCommas.length()-1)) {
+					insertedCommas = insertedCommas.concat(",");
+				}
+				insertedCommas = insertedCommas.concat(String.valueOf(character));
+				insertedCommas = insertedCommas.concat(",");
+				continue;
+			}
+			insertedCommas = insertedCommas.concat(String.valueOf(character));
+		}
+		return insertedCommas;
+	}
+	
+	
+	
+	private String reverseInfixExpression(String st) {
+		String insertedCommas = insertCommas(st.toCharArray());
+		String [] strArr = insertedCommas.split(",");
 		StringBuilder input = new StringBuilder(); 
-		input.append(st);
-		 return input.reverse().toString();
+		for(int i= strArr.length-1; i >= 0;i--) {
+			input.append(strArr[i]);
+		}
+		return input.toString();
+	}
+	
+	private String reversepostFixExpression(String postfix) {
+		StringBuilder input = new StringBuilder();
+		String arr[] = postfix.split(",");
+		for(int i = arr.length-1; i >= 0; i--) {
+			System.out.println(arr[i]);
+			input.append(arr[i]);
+			input.append(",");
+		}
+		return input.toString();
 	}
 	
 	public String conversionOfInfixToPrefixExpression(String infix) throws Exception {
-		String reverseInfix = reverseString(infix);
+		String reverseInfix = reverseInfixExpression(infix);
 		String replaceWithBraces = replacedWithBracesString(reverseInfix);
+		System.out.println(replaceWithBraces);
 		String postfixExpression = conversionOfInfixToPostExpression(replaceWithBraces);
-	    return reverseString(postfixExpression);
+		System.out.println(postfixExpression);
+		return reversepostFixExpression(postfixExpression);
+	}
+	
+	public String preFixInsertedWithCommasToEvaluateExpression(String infix) throws Exception {
+		String reverseInfix = reverseInfixExpression(infix);
+		System.out.println(reverseInfix);
+		String replaceWithBraces = replacedWithBracesString(reverseInfix);
+		System.out.println("CHECK with braces  :::: "+replaceWithBraces);
+		InfixToPostFixWithComma infixToPostFix = new InfixToPostFixWithComma();
+		String postfixExpression = infixToPostFix.conversionOfInfixToPostExpression(replaceWithBraces);
+		//String postfixExpression = conversionOfInfixToPostExpression(replaceWithBraces);
+		System.out.println("CHECK :::: "+postfixExpression);
+		return reversepostFixExpression(postfixExpression);
 	}
 	
 	private  boolean isOperator(String symbol) {
@@ -171,11 +221,13 @@ public class InfixToPreFix {
 
 	
 	public static void main(String args[]) throws Exception {
-		String infix = "(a+b*c)";
+		String infix = "A+B*C/(E-F)";
 		System.out.println(infix);
+		infix = infix.replaceAll("\\s", ""); 
 		InfixToPreFix infixToPreFix = new InfixToPreFix();
 		String preFix = infixToPreFix.conversionOfInfixToPrefixExpression(infix);
 		System.out.println("preFix ::: "+preFix);
+		//System.out.println(infixToPreFix.preFixInsertedWithCommasToEvaluateExpression(infix));
 	}
 
 }
