@@ -16,8 +16,8 @@ public class Test {
 				.GET()
 				.build();
 
-		HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString());	
+		//HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString());	
 	}  
 }
 
-}
+

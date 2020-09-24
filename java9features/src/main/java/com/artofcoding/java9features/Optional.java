@@ -11,10 +11,10 @@ public class Optional {
 	// Y ? 
 	// u burden the users 
 	public static void process(java.util.Optional<Integer> result) {
-	    result.get(); // dont do this 
+	    //result.get(); // dont do this 
 	    // get is to forget because it blows without telling you 
 	    // NoSuchElement 
-	    result.orElseThrow(); // it clearly tells you the intension
+	   // result.orElseThrow(); // it clearly tells you the intension
 	    result.orElse(0); // gives value or return for me 0 
 	    if(result.isPresent()) {
 	    	
