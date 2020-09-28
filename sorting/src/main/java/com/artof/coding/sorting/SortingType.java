@@ -1,0 +1,7 @@
+package com.artof.coding.sorting;
+
+public enum SortingType {
+
+    SELECTIONSORT, INSERTIONSORT, SHELLSORT, TOPDOWNMERGESORT, BOTTOMUPMERGESORT, QUICKSORT, HEAPSORT
+
+}
