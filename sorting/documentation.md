@@ -9,10 +9,10 @@ SELECTION SORT :::
 | 1   | 4    | A       | **O** | R     | T     | **E** | X     | S     | M     | P     | L     | E     |
 | 2   | 10   | A       | E     | **R** | T     | O     | X     | S     | M     | P     | L     | **E** |
 | 3   | 9    | A       | E     | E     | **T** | O     | X     | S     | M     | P     | **L** | E     |
-| 4   | 7    | A       | E     | E     | L     | **0** | X     | S     | **M** | P     | T     | R     |
+| 4   | 7    | A       | E     | E     | L     | **O** | X     | S     | **M** | P     | T     | R     |
 | 5   | 7    | A       | E     | E     | L     | M     | **X** | S     | **O** | P     | T     | R     |
-| 6   | 8    | A       | E     | E     | L     | M     | 0     | **S** | X     | **P** | T     | R     |
-| 7   | 10   | A       | E     | E     | L     | M     | 0     | P     | **X** | S     | T     | **R** |
-| 8   | 8    | A       | E     | E     | L     | M     | 0     | P     | R     | **S** | T     | X     |
-| 9   | 9    | A       | E     | E     | L     | M     | 0     | P     | R     | S     | **T** | X     |
-| 10  | 10   | A       | E     | E     | L     | M     | 0     | P     | R     | S     | T     | **X** |
+| 6   | 8    | A       | E     | E     | L     | M     | O     | **S** | X     | **P** | T     | R     |
+| 7   | 10   | A       | E     | E     | L     | M     | O     | P     | **X** | S     | T     | **R** |
+| 8   | 8    | A       | E     | E     | L     | M     | O     | P     | R     | **S** | T     | X     |
+| 9   | 9    | A       | E     | E     | L     | M     | O     | P     | R     | S     | **T** | X     |
+| 10  | 10   | A       | E     | E     | L     | M     | O     | P     | R     | S     | T     | **X** |
