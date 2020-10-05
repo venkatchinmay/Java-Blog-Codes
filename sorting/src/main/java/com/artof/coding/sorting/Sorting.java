@@ -8,11 +8,11 @@ public interface Sorting<T> {
      * we need to implement a sorting algorithm WE NEED TO IMPLEMENT A SORTING ORDER
      * (ASC or DSC) AND SORTED PARAMETER in COMPARATOR interface
      */
-    public void sort(T[] elements, Comparator<T> comparator, SortingType sortingType);
+    public T[] sort(T[] elements, Comparator<T> comparator, SortingType sortingType) throws Exception;
 
     public void exchangingElements(T[] elements, int fromPosition, int toPosition);
 
-    public void printingTheElements(T[] elements);
+    public String printingTheElements(T[] elements);
 
     public boolean isElementsArePerfectlySorted(T[] elements, Comparator<T> comparator);
 
