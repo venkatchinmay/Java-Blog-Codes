@@ -1,0 +1,3 @@
+module StudentDetails {
+    requires StudentFeesCalculation;
+}
