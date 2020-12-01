@@ -27,6 +27,6 @@ function printingTheElements(elements) {
     }
 }
 
-elements = [5, 1, 4, 2, 8]
-elementsSort = bubbleSort(elements)
+var elementsNeedToSort = [5, 1, 4, 2, 8]
+var elementsSort = bubbleSort(elementsNeedToSort)
 printingTheElements(elementsSort)
